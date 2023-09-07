@@ -10,8 +10,14 @@ using System.Windows.Forms;
 
 namespace SpcConverter.Forms
 {
+    /// <summary>
+    /// Класс формы справки.
+    /// </summary>
     public partial class AboutForm : Form
     {
+        /// <summary>
+        /// Конструктор формы справки.
+        /// </summary>
         public AboutForm()
         {
             InitializeComponent();

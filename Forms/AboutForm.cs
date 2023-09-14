@@ -22,5 +22,11 @@ namespace SpcConverter.Forms
         {
             InitializeComponent();
         }
+
+        private void AboutForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+            e.Cancel = true;
+        }
     }
 }

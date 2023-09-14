@@ -50,6 +50,7 @@
             Name = "AboutForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "СПО \"Конвертер\" - Справка";
+            FormClosing += AboutForm_FormClosing;
             ResumeLayout(false);
         }
 

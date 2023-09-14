@@ -16,11 +16,25 @@ namespace SpcConverter.Forms
     public partial class MainForm : Form
     {
         /// <summary>
+        /// Ссылка на форму справки.
+        /// </summary>
+        private AboutForm aboutForm;
+
+        /// <summary>
+        /// Ссылка на форму настроек.
+        /// </summary>
+        private SettingsForm settingsForm;
+
+        /// <summary>
         /// Конструктор класса главной формы.
         /// </summary>
         public MainForm()
         {
             InitializeComponent();
+
+            //Инициализация форм справки и настроек.
+            aboutForm = new AboutForm();
+            settingsForm = new SettingsForm();
         }
 
         /// <summary>
@@ -30,7 +44,7 @@ namespace SpcConverter.Forms
         /// <param name="e"></param>
         private void open_about_btn_Click(object sender, EventArgs e)
         {
-
+            aboutForm.Show();
         }
 
         /// <summary>
@@ -40,7 +54,7 @@ namespace SpcConverter.Forms
         /// <param name="e"></param>
         private void open_settings_btn_Click(object sender, EventArgs e)
         {
-
+            settingsForm.Show();
         }
 
         /// <summary>

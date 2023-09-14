@@ -333,6 +333,7 @@
             Name = "SettingsForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "СПО \"Конвертер\" - Настройки";
+            FormClosing += SettingsForm_FormClosing;
             path_groupBox.ResumeLayout(false);
             path_groupBox.PerformLayout();
             stamp_groupBox.ResumeLayout(false);

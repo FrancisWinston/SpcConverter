@@ -52,7 +52,7 @@
             developer = new TextBox();
             revisor = new TextBox();
             approved = new TextBox();
-            controller = new TextBox();
+            controlled = new TextBox();
             save_btn = new Button();
             reset_btn = new Button();
             path_groupBox.SuspendLayout();
@@ -130,10 +130,11 @@
             // 
             // subsection_table_path
             // 
+            subsection_table_path.Font = new Font("Segoe UI Semibold", 6.75F, FontStyle.Bold, GraphicsUnit.Point);
             subsection_table_path.Location = new Point(139, 143);
             subsection_table_path.Name = "subsection_table_path";
             subsection_table_path.ReadOnly = true;
-            subsection_table_path.Size = new Size(373, 23);
+            subsection_table_path.Size = new Size(373, 19);
             subsection_table_path.TabIndex = 39;
             // 
             // select_subsection_table_btn
@@ -148,10 +149,11 @@
             // 
             // graphic_path
             // 
+            graphic_path.Font = new Font("Segoe UI Semibold", 6.75F, FontStyle.Bold, GraphicsUnit.Point);
             graphic_path.Location = new Point(139, 114);
             graphic_path.Name = "graphic_path";
             graphic_path.ReadOnly = true;
-            graphic_path.Size = new Size(374, 23);
+            graphic_path.Size = new Size(374, 19);
             graphic_path.TabIndex = 37;
             // 
             // select_graphic_btn
@@ -166,10 +168,11 @@
             // 
             // header_path
             // 
+            header_path.Font = new Font("Segoe UI Semibold", 6.75F, FontStyle.Bold, GraphicsUnit.Point);
             header_path.Location = new Point(139, 85);
             header_path.Name = "header_path";
             header_path.ReadOnly = true;
-            header_path.Size = new Size(374, 23);
+            header_path.Size = new Size(374, 19);
             header_path.TabIndex = 35;
             // 
             // select_header_dir
@@ -184,10 +187,11 @@
             // 
             // output_dir_path
             // 
+            output_dir_path.Font = new Font("Segoe UI Semibold", 6.75F, FontStyle.Bold, GraphicsUnit.Point);
             output_dir_path.Location = new Point(140, 56);
             output_dir_path.Name = "output_dir_path";
             output_dir_path.ReadOnly = true;
-            output_dir_path.Size = new Size(373, 23);
+            output_dir_path.Size = new Size(373, 19);
             output_dir_path.TabIndex = 33;
             // 
             // select_output_dir_btn
@@ -202,10 +206,11 @@
             // 
             // input_dir_path
             // 
+            input_dir_path.Font = new Font("Segoe UI Semibold", 6.75F, FontStyle.Bold, GraphicsUnit.Point);
             input_dir_path.Location = new Point(139, 27);
             input_dir_path.Name = "input_dir_path";
             input_dir_path.ReadOnly = true;
-            input_dir_path.Size = new Size(374, 23);
+            input_dir_path.Size = new Size(374, 19);
             input_dir_path.TabIndex = 31;
             // 
             // select_input_dir_btn
@@ -227,7 +232,7 @@
             stamp_groupBox.Controls.Add(developer);
             stamp_groupBox.Controls.Add(revisor);
             stamp_groupBox.Controls.Add(approved);
-            stamp_groupBox.Controls.Add(controller);
+            stamp_groupBox.Controls.Add(controlled);
             stamp_groupBox.Location = new Point(12, 190);
             stamp_groupBox.Name = "stamp_groupBox";
             stamp_groupBox.Size = new Size(301, 151);
@@ -292,12 +297,12 @@
             approved.Size = new Size(151, 23);
             approved.TabIndex = 1;
             // 
-            // controller
+            // controlled
             // 
-            controller.Location = new Point(139, 88);
-            controller.Name = "controller";
-            controller.Size = new Size(151, 23);
-            controller.TabIndex = 0;
+            controlled.Location = new Point(139, 88);
+            controlled.Name = "controlled";
+            controlled.Size = new Size(151, 23);
+            controlled.TabIndex = 0;
             // 
             // save_btn
             // 
@@ -367,7 +372,7 @@
         private TextBox developer;
         private TextBox revisor;
         private TextBox approved;
-        private TextBox controller;
+        private TextBox controlled;
         private Button save_btn;
         private Button reset_btn;
     }

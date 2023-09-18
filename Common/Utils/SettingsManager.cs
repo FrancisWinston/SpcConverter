@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.Sqlite;
+using Microsoft.Win32.SafeHandles;
 using SpcConverter.Common.Models;
 using System;
 using System.Collections.Generic;
@@ -97,7 +98,12 @@ namespace SpcConverter.Common.Utils
                     }
                 }
 
-                result = true;
+                if (!commonSettings.IsValid())
+                {
+                    commonSettings.SetDefault();
+                }
+
+                return true;
             }
             catch (Exception exception)
             {

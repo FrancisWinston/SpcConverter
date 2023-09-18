@@ -41,8 +41,8 @@ namespace SpcConverter.Common.Models
         {
             switch (key)
             {
-                case "Version":
-                    commonParams["Version"] = value;
+                case "VERSION":
+                    commonParams["VERSION"] = value;
                     break;
                 default:
                     ApplicationLogger.Log("Обнаружено неизвестное значение в файле общих настроек программы!", Level.WARN);
@@ -77,6 +77,51 @@ namespace SpcConverter.Common.Models
                 value = commonParams[key];
 
             return value;
+        }
+
+
+        /// <summary>
+        /// Метод для валидации общих настроек программы.
+        /// </summary>
+        /// <returns>Флаг валидности загруженных общих настроек программы.</returns>
+        public bool IsValid()
+        {
+            bool result = true;
+
+            if (!commonParams.ContainsKey("VERSION") ||
+               !commonParams.ContainsKey("INPUT_DIR") ||
+               !commonParams.ContainsKey("OUTPUT_DIR") ||
+               !commonParams.ContainsKey("HEADER_PATH") ||
+               !commonParams.ContainsKey("LYT_PATH") ||
+               !commonParams.ContainsKey("TABLE_PATH") ||
+               !commonParams.ContainsKey("DEVELOPER") ||
+               !commonParams.ContainsKey("REVISOR") ||
+               !commonParams.ContainsKey("CONTROLLED") ||
+               !commonParams.ContainsKey("APPROVED"))
+            {
+                ApplicationLogger.Log("Проверка валидации общих настроек выявила их невалидное состояние!", Level.WARN);
+                result = false;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Метод для установки настроек по умолчанию.
+        /// </summary>
+        public void SetDefault()
+        {
+            commonParams.Clear();
+            commonParams["VERSION"] = "1.0.0";
+            commonParams["INPUT_DIR"] = Application.StartupPath;
+            commonParams["OUTPUT_DIR"] = Application.StartupPath;
+            commonParams["HEADER_PATH"] = Application.StartupPath;
+            commonParams["LYT_PATH"] = Application.StartupPath;
+            commonParams["TABLE_PATH"] = Application.StartupPath;
+            commonParams["DEVELOPER"] = "";
+            commonParams["REVISOR"] = "";
+            commonParams["CONTROLLED"] = "";
+            commonParams["APPROVED"] = "";
+            ApplicationLogger.Log("Установлены общие настройки СПО по умолчанию.");
         }
     }
 }

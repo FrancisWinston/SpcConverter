@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.WindowsAPICodePack.Dialogs;
 using SpcConverter.Common.Models;
 using SpcConverter.Common.Utils;
 using System;
@@ -94,7 +95,12 @@ namespace SpcConverter.Forms
         /// <param name="e"></param>
         private void select_input_dir_btn_Click(object sender, EventArgs e)
         {
-
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog();
+            dialog.IsFolderPicker = true;
+            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+            {
+                input_dir_path.Text = dialog.FileName;
+            }
         }
 
         /// <summary>
@@ -104,7 +110,12 @@ namespace SpcConverter.Forms
         /// <param name="e"></param>
         private void select_output_dir_btn_Click(object sender, EventArgs e)
         {
-
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog();
+            dialog.IsFolderPicker = true;
+            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+            {
+                output_dir_path.Text = dialog.FileName;
+            }
         }
 
         /// <summary>
@@ -114,7 +125,12 @@ namespace SpcConverter.Forms
         /// <param name="e"></param>
         private void select_header_dir_Click(object sender, EventArgs e)
         {
-
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog();
+            dialog.IsFolderPicker = true;
+            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+            {
+                header_path.Text = dialog.FileName;
+            }
         }
 
         /// <summary>
@@ -124,7 +140,12 @@ namespace SpcConverter.Forms
         /// <param name="e"></param>
         private void select_graphic_btn_Click(object sender, EventArgs e)
         {
-
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog();
+            dialog.IsFolderPicker = true;
+            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+            {
+                graphic_path.Text = dialog.FileName;
+            }
         }
 
         /// <summary>
@@ -134,7 +155,12 @@ namespace SpcConverter.Forms
         /// <param name="e"></param>
         private void select_subsection_table_btn_Click(object sender, EventArgs e)
         {
-
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog();
+            dialog.IsFolderPicker = true;
+            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+            {
+                subsection_table_path.Text = dialog.FileName;
+            }
         }
 
         /// <summary>
@@ -144,7 +170,8 @@ namespace SpcConverter.Forms
         /// <param name="e"></param>
         private void reset_btn_Click(object sender, EventArgs e)
         {
-
+            CommonSettings commonSettings = SettingsManager.GetInstance().GetCommonSettings();
+            commonSettings.SetDefault();
         }
 
         /// <summary>

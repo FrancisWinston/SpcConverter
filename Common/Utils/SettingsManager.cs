@@ -36,6 +36,7 @@ namespace SpcConverter.Common.Utils
                 using (var connection = new SqliteConnection($"Data Source={settingsPath}\\commonsettings.db"))
                 {
                     connection.Open();
+
                     SqliteCommand command = new SqliteCommand();
                     command.Connection = connection;
                     command.CommandText = "CREATE TABLE IF NOT EXISTS Params(Key TEXT NOT NULL PRIMARY KEY UNIQUE, Value TEXT)";
@@ -150,10 +151,18 @@ namespace SpcConverter.Common.Utils
                             string? value = commonSettings.Get(key)!.ToString();
                             if (value != null)
                             {
-                                SqliteCommand command = new SqliteCommand();
-                                command.Connection = connection;
-                                command.CommandText = $"UPDATE Params SET Value={value} where Key={key}";
-                                command.ExecuteNonQuery();
+                                SqliteCommand command1 = new SqliteCommand();
+                                command1.Connection = connection;
+                                command1.CommandText = $"UPDATE Params SET Value='{value}' where Key='{key}'";
+                                int command1_result =  command1.ExecuteNonQuery();
+
+                                if (command1_result == 0)
+                                {
+                                    SqliteCommand command2 = new SqliteCommand();
+                                    command2.Connection = connection;
+                                    command2.CommandText = $"INSERT INTO Params VALUES ('{key}', '{value}');";
+                                    command2.ExecuteNonQuery();
+                                }
                             }
                         }
                     }

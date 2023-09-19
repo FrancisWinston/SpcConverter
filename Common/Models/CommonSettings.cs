@@ -41,8 +41,46 @@ namespace SpcConverter.Common.Models
         {
             switch (key)
             {
+                /*
+                 * input_dir_path.Text = (string)commonSettings.Get("INPUT_DIR")!;
+                output_dir_path.Text = (string)commonSettings.Get("OUTPUT_DIR")!;
+                header_path.Text = (string)commonSettings.Get("HEADER_PATH")!;
+                graphic_path.Text = (string)commonSettings.Get("LYT_PATH")!;
+                subsection_table_path.Text = (string)commonSettings.Get("TABLE_PATH")!;
+                developer.Text = (string)commonSettings.Get("DEVELOPER")!;
+                revisor.Text = (string)commonSettings.Get("REVISOR")!;
+                controlled.Text = (string)commonSettings.Get("CONTROLLED")!;
+                approved.Text = (string)commonSettings.Get("APPROVED")!;
+                 */
                 case "VERSION":
                     commonParams["VERSION"] = value;
+                    break;
+                case "INPUT_DIR":
+                    commonParams["INPUT_DIR"] = value;
+                    break;
+                case "OUTPUT_DIR":
+                    commonParams["OUTPUT_DIR"] = value;
+                    break;
+                case "HEADER_PATH":
+                    commonParams["HEADER_PATH"] = value;
+                    break;
+                case "LYT_PATH":
+                    commonParams["LYT_PATH"] = value;
+                    break;
+                case "TABLE_PATH":
+                    commonParams["TABLE_PATH"] = value;
+                    break;
+                case "DEVELOPER":
+                    commonParams["DEVELOPER"] = value;
+                    break;
+                case "REVISOR":
+                    commonParams["REVISOR"] = value;
+                    break;
+                case "CONTROLLED":
+                    commonParams["CONTROLLED"] = value;
+                    break;
+                case "APPROVED":
+                    commonParams["APPROVED"] = value;
                     break;
                 default:
                     ApplicationLogger.Log("Обнаружено неизвестное значение в файле общих настроек программы!", Level.WARN);
@@ -88,8 +126,7 @@ namespace SpcConverter.Common.Models
         {
             bool result = true;
 
-            if (!commonParams.ContainsKey("VERSION") ||
-               !commonParams.ContainsKey("INPUT_DIR") ||
+            if (!commonParams.ContainsKey("INPUT_DIR") ||
                !commonParams.ContainsKey("OUTPUT_DIR") ||
                !commonParams.ContainsKey("HEADER_PATH") ||
                !commonParams.ContainsKey("LYT_PATH") ||

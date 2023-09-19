@@ -35,6 +35,7 @@
             // 
             about_text.Location = new Point(12, 12);
             about_text.Name = "about_text";
+            about_text.ReadOnly = true;
             about_text.Size = new Size(600, 417);
             about_text.TabIndex = 0;
             about_text.Text = "";

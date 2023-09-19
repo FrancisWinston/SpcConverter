@@ -282,6 +282,7 @@
             developer.Name = "developer";
             developer.Size = new Size(151, 23);
             developer.TabIndex = 4;
+            developer.Enter += developer_Enter;
             // 
             // revisor
             // 
@@ -289,6 +290,7 @@
             revisor.Name = "revisor";
             revisor.Size = new Size(151, 23);
             revisor.TabIndex = 3;
+            revisor.TextChanged += revisor_TextChanged;
             // 
             // approved
             // 
@@ -296,6 +298,7 @@
             approved.Name = "approved";
             approved.Size = new Size(151, 23);
             approved.TabIndex = 1;
+            approved.TextChanged += approved_TextChanged;
             // 
             // controlled
             // 
@@ -303,6 +306,7 @@
             controlled.Name = "controlled";
             controlled.Size = new Size(151, 23);
             controlled.TabIndex = 0;
+            controlled.TextChanged += controlled_TextChanged;
             // 
             // save_btn
             // 

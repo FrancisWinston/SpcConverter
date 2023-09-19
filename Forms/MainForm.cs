@@ -44,7 +44,7 @@ namespace SpcConverter.Forms
         /// <param name="e"></param>
         private void open_about_btn_Click(object sender, EventArgs e)
         {
-            aboutForm.ShowDialog();
+            aboutForm.Show();
         }
 
         /// <summary>

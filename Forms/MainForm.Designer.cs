@@ -30,13 +30,13 @@
         {
             progress_groupBox = new GroupBox();
             read_header_checkbox = new CheckBox();
-            finished_checkbox = new CheckBox();
+            finished_checkBox = new CheckBox();
             file_creation_checkBox = new CheckBox();
             read_input_checkBox = new CheckBox();
-            checkBox1 = new CheckBox();
-            checkBox4 = new CheckBox();
-            convertation_checkBox = new CheckBox();
-            checkBox3 = new CheckBox();
+            search_input_checkBox = new CheckBox();
+            convertation_statement_checkBox = new CheckBox();
+            convertation_specification_checkBox = new CheckBox();
+            convertation_listing_checkBox = new CheckBox();
             action_groupBox = new GroupBox();
             open_settings_btn = new Button();
             edit_header_btn = new Button();
@@ -57,13 +57,13 @@
             // progress_groupBox
             // 
             progress_groupBox.Controls.Add(read_header_checkbox);
-            progress_groupBox.Controls.Add(finished_checkbox);
+            progress_groupBox.Controls.Add(finished_checkBox);
             progress_groupBox.Controls.Add(file_creation_checkBox);
             progress_groupBox.Controls.Add(read_input_checkBox);
-            progress_groupBox.Controls.Add(checkBox1);
-            progress_groupBox.Controls.Add(checkBox4);
-            progress_groupBox.Controls.Add(convertation_checkBox);
-            progress_groupBox.Controls.Add(checkBox3);
+            progress_groupBox.Controls.Add(search_input_checkBox);
+            progress_groupBox.Controls.Add(convertation_statement_checkBox);
+            progress_groupBox.Controls.Add(convertation_specification_checkBox);
+            progress_groupBox.Controls.Add(convertation_listing_checkBox);
             progress_groupBox.ForeColor = SystemColors.ControlText;
             progress_groupBox.Location = new Point(402, 204);
             progress_groupBox.Name = "progress_groupBox";
@@ -84,17 +84,17 @@
             read_header_checkbox.Text = "Чтение заголовка";
             read_header_checkbox.UseVisualStyleBackColor = true;
             // 
-            // finished_checkbox
+            // finished_checkBox
             // 
-            finished_checkbox.AutoCheck = false;
-            finished_checkbox.AutoSize = true;
-            finished_checkbox.ForeColor = SystemColors.ControlText;
-            finished_checkbox.Location = new Point(6, 197);
-            finished_checkbox.Name = "finished_checkbox";
-            finished_checkbox.Size = new Size(67, 19);
-            finished_checkbox.TabIndex = 4;
-            finished_checkbox.Text = "Готово!";
-            finished_checkbox.UseVisualStyleBackColor = true;
+            finished_checkBox.AutoCheck = false;
+            finished_checkBox.AutoSize = true;
+            finished_checkBox.ForeColor = SystemColors.ControlText;
+            finished_checkBox.Location = new Point(6, 197);
+            finished_checkBox.Name = "finished_checkBox";
+            finished_checkBox.Size = new Size(67, 19);
+            finished_checkBox.TabIndex = 4;
+            finished_checkBox.Text = "Готово!";
+            finished_checkBox.UseVisualStyleBackColor = true;
             // 
             // file_creation_checkBox
             // 
@@ -120,53 +120,53 @@
             read_input_checkBox.Text = "Чтение исходников";
             read_input_checkBox.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // search_input_checkBox
             // 
-            checkBox1.AutoCheck = false;
-            checkBox1.AutoSize = true;
-            checkBox1.ForeColor = SystemColors.ControlText;
-            checkBox1.Location = new Point(6, 22);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(129, 19);
-            checkBox1.TabIndex = 5;
-            checkBox1.Text = "Поиск исходников";
-            checkBox1.UseVisualStyleBackColor = true;
+            search_input_checkBox.AutoCheck = false;
+            search_input_checkBox.AutoSize = true;
+            search_input_checkBox.ForeColor = SystemColors.ControlText;
+            search_input_checkBox.Location = new Point(6, 22);
+            search_input_checkBox.Name = "search_input_checkBox";
+            search_input_checkBox.Size = new Size(129, 19);
+            search_input_checkBox.TabIndex = 5;
+            search_input_checkBox.Text = "Поиск исходников";
+            search_input_checkBox.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // convertation_statement_checkBox
             // 
-            checkBox4.AutoCheck = false;
-            checkBox4.AutoSize = true;
-            checkBox4.ForeColor = SystemColors.ControlText;
-            checkBox4.Location = new Point(6, 147);
-            checkBox4.Name = "checkBox4";
-            checkBox4.Size = new Size(167, 19);
-            checkBox4.TabIndex = 8;
-            checkBox4.Text = "Конвертация в ведомость";
-            checkBox4.UseVisualStyleBackColor = true;
+            convertation_statement_checkBox.AutoCheck = false;
+            convertation_statement_checkBox.AutoSize = true;
+            convertation_statement_checkBox.ForeColor = SystemColors.ControlText;
+            convertation_statement_checkBox.Location = new Point(6, 147);
+            convertation_statement_checkBox.Name = "convertation_statement_checkBox";
+            convertation_statement_checkBox.Size = new Size(167, 19);
+            convertation_statement_checkBox.TabIndex = 8;
+            convertation_statement_checkBox.Text = "Конвертация в ведомость";
+            convertation_statement_checkBox.UseVisualStyleBackColor = true;
             // 
-            // convertation_checkBox
+            // convertation_specification_checkBox
             // 
-            convertation_checkBox.AutoCheck = false;
-            convertation_checkBox.AutoSize = true;
-            convertation_checkBox.ForeColor = SystemColors.ControlText;
-            convertation_checkBox.Location = new Point(6, 97);
-            convertation_checkBox.Name = "convertation_checkBox";
-            convertation_checkBox.Size = new Size(194, 19);
-            convertation_checkBox.TabIndex = 1;
-            convertation_checkBox.Text = "Конвертация в спецификацию";
-            convertation_checkBox.UseVisualStyleBackColor = true;
+            convertation_specification_checkBox.AutoCheck = false;
+            convertation_specification_checkBox.AutoSize = true;
+            convertation_specification_checkBox.ForeColor = SystemColors.ControlText;
+            convertation_specification_checkBox.Location = new Point(6, 97);
+            convertation_specification_checkBox.Name = "convertation_specification_checkBox";
+            convertation_specification_checkBox.Size = new Size(194, 19);
+            convertation_specification_checkBox.TabIndex = 1;
+            convertation_specification_checkBox.Text = "Конвертация в спецификацию";
+            convertation_specification_checkBox.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // convertation_listing_checkBox
             // 
-            checkBox3.AutoCheck = false;
-            checkBox3.AutoSize = true;
-            checkBox3.ForeColor = SystemColors.ControlText;
-            checkBox3.Location = new Point(6, 122);
-            checkBox3.Name = "checkBox3";
-            checkBox3.Size = new Size(161, 19);
-            checkBox3.TabIndex = 7;
-            checkBox3.Text = "Конвертация в перечень";
-            checkBox3.UseVisualStyleBackColor = true;
+            convertation_listing_checkBox.AutoCheck = false;
+            convertation_listing_checkBox.AutoSize = true;
+            convertation_listing_checkBox.ForeColor = SystemColors.ControlText;
+            convertation_listing_checkBox.Location = new Point(6, 122);
+            convertation_listing_checkBox.Name = "convertation_listing_checkBox";
+            convertation_listing_checkBox.Size = new Size(161, 19);
+            convertation_listing_checkBox.TabIndex = 7;
+            convertation_listing_checkBox.Text = "Конвертация в перечень";
+            convertation_listing_checkBox.UseVisualStyleBackColor = true;
             // 
             // action_groupBox
             // 
@@ -319,10 +319,10 @@
         #endregion
 
         private GroupBox progress_groupBox;
-        private CheckBox finished_checkbox;
+        private CheckBox finished_checkBox;
         private CheckBox read_header_checkbox;
         private CheckBox file_creation_checkBox;
-        private CheckBox convertation_checkBox;
+        private CheckBox convertation_specification_checkBox;
         private CheckBox read_input_checkBox;
         private GroupBox action_groupBox;
         private Button open_settings_btn;
@@ -332,9 +332,9 @@
         private GroupBox input_files_groupBox;
         private ListBox input_list;
         private GroupBox convertation_destination_groupBox;
-        private CheckBox checkBox4;
-        private CheckBox checkBox3;
-        private CheckBox checkBox1;
+        private CheckBox convertation_statement_checkBox;
+        private CheckBox convertation_listing_checkBox;
+        private CheckBox search_input_checkBox;
         private CheckBox statement_checkBox;
         private CheckBox listing_checkBox;
         private CheckBox specification_checkBox;

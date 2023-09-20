@@ -9,6 +9,11 @@ namespace SpcConverter.Domain.Utils
 {
     internal class ExcelUtils : IDisposable
     {
+        public ExcelUtils()
+        {
+
+        }
+
         public InputDocument ReadDocument(string path)
         {
             return null;

@@ -44,7 +44,7 @@ namespace SpcConverter.Forms
             settingsForm = new SettingsForm();
 
             //Инициализация объекта для обеспечения процесса конвертации.
-            executor = new Executor();
+            executor = new Executor(this);
         }
 
         /// <summary>
@@ -89,6 +89,18 @@ namespace SpcConverter.Forms
             bool createStatement = statement_checkBox.Checked;
 
             executor.Execute(createListing, createSpecification, createStatement);
+        }
+
+        public void SetProgress(byte b)
+        {
+            search_input_checkBox.Checked = (b & 0b00000001) != 0;
+            read_input_checkBox.Checked = (b & 0b00000010) != 0;
+            read_header_checkbox.Checked = (b & 0b00000100) != 0;
+            convertation_specification_checkBox.Checked = (b & 0b00001000) != 0;
+            convertation_listing_checkBox.Checked = (b & 0b00010000) != 0;
+            convertation_statement_checkBox.Checked = (b & 0b00100000) != 0;
+            file_creation_checkBox.Checked = (b & 0b01000000) != 0;
+            finished_checkBox.Checked = (b & 0b10000000) != 0;
         }
     }
 }

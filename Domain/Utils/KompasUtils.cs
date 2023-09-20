@@ -9,6 +9,11 @@ namespace SpcConverter.Domain.Utils
 {
     internal class KompasUtils : IDisposable
     {
+        public KompasUtils()
+        {
+
+        }
+
         public void CreateListingFile(Listing listing)
         {
             try

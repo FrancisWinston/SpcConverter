@@ -172,6 +172,8 @@ namespace SpcConverter.Forms
             approved.Text = (string)commonSettings.Get("APPROVED")!;
 
             SettingsManager.GetInstance().SaveCommonSettings();
+
+            isEdited = false;
         }
 
         /// <summary>

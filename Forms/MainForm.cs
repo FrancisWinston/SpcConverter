@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Executor = SpcConverter.Domain.Executor;
 
 namespace SpcConverter.Forms
 {
@@ -26,6 +28,11 @@ namespace SpcConverter.Forms
         private SettingsForm settingsForm;
 
         /// <summary>
+        /// Ссылка на объект для обеспечения процесса конвертации.
+        /// </summary>
+        private Executor executor;
+
+        /// <summary>
         /// Конструктор класса главной формы.
         /// </summary>
         public MainForm()
@@ -35,6 +42,9 @@ namespace SpcConverter.Forms
             //Инициализация форм справки и настроек.
             aboutForm = new AboutForm();
             settingsForm = new SettingsForm();
+
+            //Инициализация объекта для обеспечения процесса конвертации.
+            executor = new Executor();
         }
 
         /// <summary>
@@ -64,7 +74,7 @@ namespace SpcConverter.Forms
         /// <param name="e"></param>
         private void edit_header_btn_Click(object sender, EventArgs e)
         {
-
+            executor.EditHeader();
         }
 
         /// <summary>
@@ -74,7 +84,11 @@ namespace SpcConverter.Forms
         /// <param name="e"></param>
         private void start_convertation_btn_Click(object sender, EventArgs e)
         {
+            bool createListing = listing_checkBox.Checked;
+            bool createSpecification = specification_checkBox.Checked;
+            bool createStatement = statement_checkBox.Checked;
 
+            executor.Execute(createListing, createSpecification, createStatement);
         }
     }
 }

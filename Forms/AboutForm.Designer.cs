@@ -33,6 +33,7 @@
             // 
             // about_text
             // 
+            about_text.Cursor = Cursors.No;
             about_text.Location = new Point(12, 12);
             about_text.Name = "about_text";
             about_text.ReadOnly = true;

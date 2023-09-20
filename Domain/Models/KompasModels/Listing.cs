@@ -8,5 +8,7 @@ namespace SpcConverter.Domain.Models.KompasModels
 {
     internal class Listing
     {
+
+       
     }
 }

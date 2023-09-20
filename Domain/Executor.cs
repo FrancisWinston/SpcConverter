@@ -1,8 +1,11 @@
-﻿using SpcConverter.Domain.Models.ExcelModels;
+﻿using SpcConverter.Domain.Converters;
+using SpcConverter.Domain.Models.ExcelModels;
 using SpcConverter.Domain.Models.KompasModels;
+using SpcConverter.Domain.Utils;
 using SpcConverter.Forms;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,37 +23,115 @@ namespace SpcConverter.Domain
 
         private List<string> SearchForInput() 
         {
-            return null;
+            List<string> output = new List<string>();
+
+            try
+            {
+
+            } catch (Exception exception)
+            {
+
+            }
+
+            return output;
         }
 
-        private List<InputDocument> ReadInput(List<string> inputFileNames)
+        private InputDocument ReadInput(List<string> inputFileNames)
         {
-            return null;
+            InputDocument output = new InputDocument();
+
+            try
+            {
+
+            } catch (Exception exception)
+            {
+
+            }
+
+            return output;
         }
 
-        private HeaderDocument ReadHeader()
+        private HeaderDocument? ReadHeader()
         {
-            return null;
+            HeaderDocument? headerDocument = null;
+
+            try
+            {
+
+            } catch(Exception exception)
+            {
+
+            }
+
+            return headerDocument;
         }
 
-        private Specification ConvertToSpecification(List<InputDocument> inputDocuments, HeaderDocument headerDocument)
+        private Specification? ConvertToSpecification(InputDocument inputDocument, HeaderDocument? headerDocument)
         {
-            return null;
+            Specification? specification = null;
+
+            try
+            {
+
+            } catch (Exception exception)
+            {
+
+            }
+
+            return specification;
         }
 
-        private Listing ConvertToListing(List<InputDocument> inputDocuments, HeaderDocument headerDocument)
+        private Listing? ConvertToListing(InputDocument inputDocuments, HeaderDocument? headerDocument)
         {
-            return null;
+            Listing? listing = null;
+
+            try
+            {
+
+            } catch (Exception exception)
+            {
+
+            }
+
+            return listing;
         }
 
-        private Statement ConvertToStatement(List<InputDocument> inputDocuments, HeaderDocument headerDocument)
+        private Statement? ConvertToStatement(InputDocument inputDocuments, HeaderDocument? headerDocument)
         {
-            return null;
+            Statement? statement = null;
+
+            try
+            {
+                StatementConverter statementConverter = new StatementConverter();
+                //statement = statementConverter.Convert()
+            }
+            catch (Exception exception)
+            {
+
+            }
+
+            return statement;
         }
 
-        private void CreateSpcFiles(Specification specification, Listing listing, Statement statement)
+        private void CreateSpcFiles(Specification? specification, Listing? listing, Statement? statement)
         {
+            try
+            {
+                using (KompasUtils kompasUtils = new KompasUtils())
+                {
+                    if (specification != null)
+                        kompasUtils.CreateSpecificationFile(specification);
 
+                    if (listing != null)
+                        kompasUtils.CreateListingFile(listing);
+
+                    if (statement != null)
+                        kompasUtils.CreateStatementFile(statement);
+                }
+            } catch(Exception exception)
+            {
+
+            }
         }
 
         public void Execute(bool createListing, bool createSpecification, bool createStatement)
@@ -60,24 +141,24 @@ namespace SpcConverter.Domain
                 //
                 List<string> inputFileNames = SearchForInput();
                 //
-                List<InputDocument> inputDocuments = ReadInput(inputFileNames);
+                InputDocument inputDocument = ReadInput(inputFileNames);
                 //
-                HeaderDocument headerDocument= ReadHeader();
+                HeaderDocument? headerDocument= ReadHeader();
 
 
-                Specification specification = null;
-                Listing listing = null;
-                Statement statement = null;
+                Specification? specification = null;
+                Listing? listing = null;
+                Statement? statement = null;
 
                 //
                 if(createSpecification)
-                    specification = ConvertToSpecification(inputDocuments, headerDocument);
+                    specification = ConvertToSpecification(inputDocument, headerDocument);
                 //
                 if(createListing)
-                    listing = ConvertToListing(inputDocuments, headerDocument);
+                    listing = ConvertToListing(inputDocument, headerDocument);
                 //
                 if(createStatement)
-                    statement = ConvertToStatement(inputDocuments, headerDocument);
+                    statement = ConvertToStatement(inputDocument, headerDocument);
                 //
                 CreateSpcFiles(specification, listing, statement);
             }

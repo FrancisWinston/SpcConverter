@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SpcConverter.Domain;
+using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Executor = SpcConverter.Domain.Executor;
 
 namespace SpcConverter.Forms
 {
@@ -30,7 +30,7 @@ namespace SpcConverter.Forms
         /// <summary>
         /// Ссылка на объект для обеспечения процесса конвертации.
         /// </summary>
-        private Executor executor;
+        private BusinessLogic logic;
 
         /// <summary>
         /// Конструктор класса главной формы.
@@ -44,7 +44,7 @@ namespace SpcConverter.Forms
             settingsForm = new SettingsForm();
 
             //Инициализация объекта для обеспечения процесса конвертации.
-            executor = new Executor(this);
+            logic = new BusinessLogic(this);
         }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace SpcConverter.Forms
         /// <param name="e"></param>
         private void edit_header_btn_Click(object sender, EventArgs e)
         {
-            executor.EditHeader();
+            logic.EditHeader();
         }
 
         /// <summary>
@@ -88,7 +88,7 @@ namespace SpcConverter.Forms
             bool createSpecification = specification_checkBox.Checked;
             bool createStatement = statement_checkBox.Checked;
 
-            executor.Execute(createListing, createSpecification, createStatement);
+            logic.Execute(createListing, createSpecification, createStatement);
         }
 
         public void SetProgress(byte b)

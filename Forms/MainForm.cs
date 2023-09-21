@@ -102,5 +102,13 @@ namespace SpcConverter.Forms
             file_creation_checkBox.Checked = (b & 0b01000000) != 0;
             finished_checkBox.Checked = (b & 0b10000000) != 0;
         }
+
+        public void SetInputFileNames(List<string> inputFileNames)
+        {
+            foreach(string fileName in inputFileNames)
+            {
+                input_list.Items.Add(fileName);
+            }
+        }
     }
 }

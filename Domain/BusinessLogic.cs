@@ -1,4 +1,6 @@
-﻿using SpcConverter.Domain.Converters;
+﻿using SpcConverter.Common.Models;
+using SpcConverter.Common.Utils;
+using SpcConverter.Domain.Converters;
 using SpcConverter.Domain.Models.ExcelModels;
 using SpcConverter.Domain.Models.KompasModels;
 using SpcConverter.Domain.Utils;
@@ -16,36 +18,55 @@ namespace SpcConverter.Domain
     {
         private MainForm mainForm;
 
+        private CommonSettings commonSettings;
+
+    
         public BusinessLogic(MainForm mainForm)
         {
             this.mainForm = mainForm;
+
+            this.commonSettings = SettingsManager.GetInstance().GetCommonSettings();
         }
 
+        /// <summary>
+        /// Метод для поиска файлов исходников формата СПО Excel.
+        /// </summary>
+        /// <returns></returns>
         private List<string> SearchForInput() 
         {
             List<string> output = new List<string>();
 
             try
             {
+                string path = (string)commonSettings.Get("INPUT_DIR")!;
+                output.AddRange(Directory.GetFiles(path, searchPattern: "*.xlsx"));
 
+                mainForm.SetInputFileNames(output);
             } catch (Exception exception)
             {
-
+                ApplicationLogger.Log("Исключение в процессе поиска файлов исходников!", Level.ERROR);
+                ApplicationLogger.SaveExceptionReport(exception);
             }
 
             return output;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="inputFileNames"></param>
+        /// <returns></returns>
         private InputDocument? ReadInput(List<string> inputFileNames)
         {
             InputDocument? output = null;
 
             try
             {
-
+                
             } catch (Exception exception)
             {
-
+                ApplicationLogger.Log("Исключение в процессе чтения файлов исходников!", Level.ERROR);
+                ApplicationLogger.SaveExceptionReport(exception);
             }
 
             return output;
@@ -124,7 +145,7 @@ namespace SpcConverter.Domain
         {
             using (KompasUtils kompasUtils = new KompasUtils())
             {
-                if (specification != null)
+                if (specification != null) 
                     kompasUtils.CreateSpecificationFile(specification);
 
                 if (listing != null)
